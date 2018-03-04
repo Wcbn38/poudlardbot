@@ -8,12 +8,12 @@ const Serpentard = 3;
 const Serdaigle = 4;
 const prefix = "//"
 
-const IDGryffondor = "415565329364680704";
-const IDPoufsouffle = "415565346334834699";
-const IDSerpentard = "415565362608734226";
-const IDSerdaigle = "417073575917518848";
-const defaultChannel = "416321919944622090";
-const consoleChannel = defaultChannel;
+const IDGryffondor = "416719667558612992";
+const IDPoufsouffle = "416719577058377730";
+const IDSerpentard = "416719809468694530";
+const IDSerdaigle = "416719737213681696";
+const defaultChannel = "285346230782132224";
+const consoleChannel = "417340431085469697";
 
 const nameGryffondor = "Gryffondor"
 const namePoufsouffle = "Poufsouffle"
