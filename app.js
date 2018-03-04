@@ -1,7 +1,6 @@
 //recuperer l'ID role discord == \@rolename
 const Discord = require('discord.js');
 const bot = new Discord.Client();
-const token = 'NDE1OTI5NjM2MTQxMTM3OTIx.DX1c0Q.oy-__Nh8WjG0i89Yjo858Nwhggg';
 const tagueule = "on s'en fout";
 const Gryffondor = 1;
 const Poufsouffle = 2;
@@ -169,6 +168,6 @@ bot.on('message', (message) => {
     }
 });
 
-bot.login(token);
+bot.login(process.env.TOKEN);
 
 //# sourceMappingURL=app.js.map
