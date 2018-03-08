@@ -34,6 +34,10 @@ var PtsSerdaigle = 0
 
 var aleaMaison;
 
+var http = require("http");
+setInterval(function() {
+    http.get("https://poudlartbot.herokuapp.com/");
+}, 900000);
 
 function getrandom(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
