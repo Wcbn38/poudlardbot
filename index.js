@@ -78,7 +78,6 @@ bot.on('message', (message) => {
     if (message.content === prefix + "pts") {
         message.channel.send(`points des maisons : \n ${nameGryffondor} : ${PtsGryffondor} \n ${namePoufsouffle} : ${PtsPoufsouffle} \n ${nameSerdaigle} : ${PtsSerdaigle} \n ${nameSerpentard} : ${PtsSerpentard}`)
     }
-    if (message.content === prefix + "reset" || message.channel === consoleChannel) {
     if (message.content === prefix + "reset" + mdp ) {
     bot.channels.get(consoleChannel).send("reset successeful")
     PtsGryffondor = 0
@@ -86,9 +85,6 @@ bot.on('message', (message) => {
     PtsSerpentard = 0
     PtsSerdaigle = 0
     message.delete
-    } else {
-    bot.channels.get(consoleChannel).send("failed to reset (access denied)")
-    }
     }
     if (message.channel.id === consoleChannel && message.content !== "maison 1 :" && message.content !== "defi lance : ne pas lancer de nouveaux defi avant le message de fin!" && message.content !== "error : unknown. Var `suivitMaison` crashed. Reebooting... " && message.content !== "maison 2 :" && message.content !== "mise :" ) {
         if (message.content === prefix + "startgame" && suivitMaison === 0) {
