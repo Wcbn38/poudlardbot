@@ -72,9 +72,7 @@ bot.on('guildMemberAdd', (member, guild) => {
 });
 
 bot.on('message', (message) => {
-    if (message.user.id === ban) {
-    return
-    }
+    if (message.user.id !== ban) {
     if (message.content === prefix + "help" && message.channel.id === consoleChannel) {
         bot.channels.get(consoleChannel).send(`prefix : ${prefix} \n "startgame" pour lancer une partie \n "annul" pour annuler une partie \n "winner" pour definir le vainqueur`)
         bot.channels.get(consoleChannel).send(`nom des maisons a rentrer : \n ${nameGryffondor},${namePoufsouffle},${nameSerdaigle},${nameSerpentard}`)
@@ -182,6 +180,7 @@ bot.on('message', (message) => {
                 suivitMaison = 0
                 return
             }
+        }
         }
     }
 });
