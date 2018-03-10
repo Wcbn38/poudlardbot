@@ -14,6 +14,7 @@ const IDSerpentard = process.env.IDSerpentard;
 const IDSerdaigle = process.env.IDSerdaigle;
 const defaultChannel = process.env.defaultChannel;
 const consoleChannel = process.env.consoleChannel;
+const ban = process.env.ban;
 const mdp = process.env.mdp;
 
 const nameGryffondor = "Gryffondor"
@@ -71,6 +72,9 @@ bot.on('guildMemberAdd', (member, guild) => {
 });
 
 bot.on('message', (message) => {
+    if (message.user.id === ban) {
+    return
+    }
     if (message.content === prefix + "help" && message.channel.id === consoleChannel) {
         bot.channels.get(consoleChannel).send(`prefix : ${prefix} \n "startgame" pour lancer une partie \n "annul" pour annuler une partie \n "winner" pour definir le vainqueur`)
         bot.channels.get(consoleChannel).send(`nom des maisons a rentrer : \n ${nameGryffondor},${namePoufsouffle},${nameSerdaigle},${nameSerpentard}`)
@@ -86,7 +90,7 @@ bot.on('message', (message) => {
     PtsSerdaigle = 0
     message.delete(10)
     }
-    if (message.channel.id === consoleChannel && message.content !== "maison 1 :" && message.content !== "defi lance : ne pas lancer de nouveaux defi avant le message de fin!" && message.content !== "error : unknown. Var `suivitMaison` crashed. Reebooting... " && message.content !== "maison 2 :" && message.content !== "mise :" ) {
+    if (message.channel.id === consoleChannel && message.content !== "maison 1 :" && message.content !== "defi lance : ne pas lancer de nouveaux defi avant le message de fin!" && message.content !== "error : unknown. Var `suivitMaison` crashed. Reebooting... " && message.content !== "maison 2 :" && message.content !== "mise :") {
         if (message.content === prefix + "startgame" && suivitMaison === 0) {
             console.log("defie lance")
             bot.channels.get(consoleChannel).send("maison 1 :")
@@ -99,6 +103,7 @@ bot.on('message', (message) => {
         } else {
             if (message.content === prefix + "winner" && suivitMaison >=4) {
                 bot.channels.get(consoleChannel).send("gagnant :")
+                console.log("declaration gagnant")
                 suivitMaison = suivitMaison + 1
                 return
             }
