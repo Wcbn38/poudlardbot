@@ -134,7 +134,7 @@ bot.on('message', (message) => {
                     Pts4 = Pts4 + PtsMisee
                 }
             }
-            if ((message.content === name1 || message.content === name2 || message.content === name3 || message.content === name4 || suivitMaison === 2) && suivitMaison < 4) {
+            if ((message.content === name1 || message.content === name2 || message.content === name3 || message.content === name4 || suivitMaison === 3) && suivitMaison < 4) {
                 if (suivitMaison === 1) {
                     maison1 = message.content
                     bot.channels.get(consoleChannel).send("faction 2 :")
