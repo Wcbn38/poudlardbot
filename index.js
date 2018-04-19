@@ -202,7 +202,7 @@ bot.on('message', (message) => {
             if (suivitEvent === 21 && message.channel.id === consoleChannel && message.content !== `votre mise par maison`) {
                 PtsEvent = parseInt(message.content, 10)
                 bot.channels.get(consoleChannel).send(`Event reussi. Merci de ne pas lancer d'event.`)
-                bot.channels.get(infosChannel).sent(`@everyone , nouvel event : ${messageEvent}. \n récompense : ${PtsEvent * 3}`)
+                bot.channels.get(infosChannel).send(`@everyone , nouvel event : ${messageEvent}. \n récompense : ${PtsEvent * 3}`)
                 suivitEvent = 22
                 return
             }
