@@ -96,6 +96,7 @@ bot.on('message', (message) => {
         if (message.content === prefix + "startgame" && suivitMaison === 0) {
             console.log("defie lance")
             bot.channels.get(consoleChannel).send("faction 1 :")
+            suivitMaison = 1
             return
         }
         if (message.content === prefix + "annul") {
