@@ -238,7 +238,7 @@ bot.on('message', (message) => {
                     Pts3 = Pts3 - PtsEvent
                     Pts1 = Pts1 - PtsEvent
                 }
-                bot.channels.get(dafaultChannel).send(`${message.content} a gagne`)
+                bot.channels.get(defaultChannel).send(`${message.content} a gagne`)
                 PtsEvent = 0
                 messageEvent = ""
                 suivitEvent = 0
