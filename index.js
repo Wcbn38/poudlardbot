@@ -104,7 +104,7 @@ bot.on('message', (message) => {
             PtsMisee = 0
             return
         } else {
-            if (message.content === prefix + "winner" && suivitMaison >= 4 && suivitMaison <= 19) {
+            if (message.content === prefix + "winner" && suivitMaison === 4 ) {
                 bot.channels.get(consoleChannel).send("gagnant :")
                 console.log("declaration gagnant")
                 suivitMaison = suivitMaison + 1
