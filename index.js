@@ -189,25 +189,25 @@ bot.on('message', (message) => {
 
 
             if (message.channel.id === consoleChannel && message.content === `${prefix}event` && suivitEvent === 0) {
-                bot.get.channel(consoleChannel).send(`votre message :`)
+                bot.channels.get(consoleChannel).send(`votre message :`)
                 suivitEvent = 20
                 return
             }
             if (suivitEvent === 20 && message.channel.id === consoleChannel) {
                 messageEvent = message.content
-                bot.get.channel(consoleChannel).send(`votre mise par maison`)
+                bot.channels.get(consoleChannel).send(`votre mise par maison`)
                 suivitEvent = 21
                 return
             }
             if (suivitEvent === 21 && message.channel.id === consoleChannel) {
                 PtsEvent = parseInt(message.content, 10)
-                bot.get.channel(consoleChannel).send(`Event reussi. Merci de ne pas lancer d'event.`)
-                bot.get.channel(infosChannel).sent(`@everyone , nouvel event : ${messageEvent}. \n récompense : ${PtsEvent * 3}`)
+                bot.channels.get(consoleChannel).send(`Event reussi. Merci de ne pas lancer d'event.`)
+                bot.channels.get(infosChannel).sent(`@everyone , nouvel event : ${messageEvent}. \n récompense : ${PtsEvent * 3}`)
                 suivitEvent = 22
                 return
             }
             if (suivitEvent === 22 && message.channel.id === consoleChannel && message.content === `${prefix}eventWinner`) {
-                bot.get.channel(consoleChannel).send(`winner :`)
+                bot.channels.get(consoleChannel).send(`winner :`)
                 suivitEvent = 23
                 return
             }
@@ -242,7 +242,7 @@ bot.on('message', (message) => {
                 return
             }
             if (message.channel.id === consoleChannel && message.content === `${prefix}eventannul`) {
-                bot.get.channel(consoleChannel).send(`event annule`)
+                bot.channels.get(consoleChannel).send(`event annule`)
                 messageEvent = ""
                 suivitEvent = 0
                 PtsEvent = 0
