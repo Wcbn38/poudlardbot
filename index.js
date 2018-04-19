@@ -239,6 +239,7 @@ bot.on('message', (message) => {
                     Pts1 = Pts1 - PtsEvent
                 }
                 bot.channels.get(defaultChannel).send(`${message.content} a gagne`)
+                bot.channels.get(consoleChannel).send(`event terminé, points distribué.`)
                 PtsEvent = 0
                 messageEvent = ""
                 suivitEvent = 0
