@@ -138,11 +138,13 @@ bot.on('message', (message) => {
                 if (suivitMaison === 1) {
                     maison1 = message.content
                     bot.channels.get(consoleChannel).send("faction 2 :")
+                    suivitMaison = suivitMaison + 1
                     return
                 }
                 if (suivitMaison === 2) {
                     maison2 = message.content
                     bot.channels.get(consoleChannel).send("mise :")
+                    suivitMaison = suivitMaison + 1
                     return
                 }
                 if (suivitMaison === 3) {
@@ -157,7 +159,6 @@ bot.on('message', (message) => {
                     suivitMaison = 0
                     return
                 }
-                suivitMaison = suivitMaison + 1
             }
             if (perdant === name1) {
                 Pts1 = Pts1 - PtsMisee
