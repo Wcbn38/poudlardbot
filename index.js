@@ -39,7 +39,7 @@ var aleaMaison;
 
 var http = require("http");
 setInterval(function () {
-    http.get("https://poudlartbot.herokuapp.com/");
+    http.get("http://poudlartbot.herokuapp.com/");
 }, 900000);
 
 function getrandom(min, max) {
