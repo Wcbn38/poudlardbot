@@ -113,6 +113,10 @@ bot.on('message', (message) => {
             bot.channels.get(consoleChannel).send("defi annule")
             suivitMaison = 0
             PtsMisee = 0
+            bot.channels.get(IDptsname1).setTopic(Pts1.toString(0))
+            bot.channels.get(IDptsname2).setTopic(Pts2.toString(0))
+            bot.channels.get(IDptsname3).setTopic(Pts3.toString(0))
+            bot.channels.get(IDptsname4).setTopic(Pts4.toString(0))
             return
         } else {
             if (message.content === prefix + "winner" && suivitMaison === 4) {
