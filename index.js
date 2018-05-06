@@ -267,7 +267,7 @@ bot.on('message', (message) => {
             }
         }
     }
-    if (message.content === `validation terminé!`) {
+    if (message.content === `validation termine!`) {
         bot.channels.get(IDptsname1).setName(Pts1)
         bot.channels.get(IDptsname2).setName(Pts2)
         bot.channels.get(IDptsname3).setName(Pts3)
