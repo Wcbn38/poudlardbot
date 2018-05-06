@@ -123,7 +123,7 @@ bot.on('message', (message) => {
             }
             if ((message.content === maison1 || message.content === maison2) && suivitMaison === 5) {
                 bot.channels.get(defaultChannel).send(`@everyone ${message.content} a gagne`)
-                bot.channels.get(consoleChannel).send(`validation terminé!`)
+                bot.channels.get(consoleChannel).send(`validation termine!`)
                 if (message.content === maison1) {
                     perdant = maison2
                 } else {
