@@ -11,6 +11,10 @@ const defaultChannel = process.env.defaultChannel;
 const consoleChannel = process.env.consoleChannel;
 const infosChannel = process.env.infosChannel;
 const mdp = process.env.mdp;
+const IDptsname1 = process.env.IDptsname1
+const IDptsname2 = process.env.IDptsname2
+const IDptsname3 = process.env.IDptsname3
+const IDptsname4 = process.env.IDptsname4
 
 const name1 = "Rubis"
 const name2 = "Emeraude"
@@ -25,7 +29,6 @@ var PtsMisee = 0
 var suivitMaison = 0
 var perdant
 var suivitEvent = 0
-
 
 var Pts1 = 0
 var Pts2 = 0
@@ -43,6 +46,13 @@ function getrandom(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
+
+bot.on('ready', (channels) => {
+    Pts1 = bot.channels.get(IDptsname1).name
+    Pts2 = bot.channels.get(IDptsname2).name
+    Pts3 = bot.channels.get(IDptsname3).name
+    Pts4 = bot.channels.get(IDptsname4).name
+})
 
 bot.on('guildMemberAdd', (member, guild) => {
     aleaMaison = getrandom(1, 4);
@@ -105,7 +115,7 @@ bot.on('message', (message) => {
             PtsMisee = 0
             return
         } else {
-            if (message.content === prefix + "winner" && suivitMaison === 4 ) {
+            if (message.content === prefix + "winner" && suivitMaison === 4) {
                 bot.channels.get(consoleChannel).send("gagnant :")
                 console.log("declaration gagnant")
                 suivitMaison = suivitMaison + 1
@@ -213,7 +223,7 @@ bot.on('message', (message) => {
                 suivitEvent = 23
                 return
             }
-            if (suivitEvent === 23 && message.channel.id === consoleChannel && (message.content === name1 || message.content === name2 || message.content === name3 || message.content === name4) ) {
+            if (suivitEvent === 23 && message.channel.id === consoleChannel && (message.content === name1 || message.content === name2 || message.content === name3 || message.content === name4)) {
                 if (message.content === name1) {
                     Pts1 = Pts1 + PtsEvent * 3
                     Pts2 = Pts2 - PtsEvent
@@ -243,6 +253,10 @@ bot.on('message', (message) => {
                 PtsEvent = 0
                 messageEvent = ""
                 suivitEvent = 0
+                bot.channels.get(IDptsname1).setName(Pts1)
+                bot.channels.get(IDptsname2).setName(Pts2)
+                bot.channels.get(IDptsname3).setName(Pts3)
+                bot.channels.get(IDptsname4).setName(Pts4)
                 return
             }
             if (message.channel.id === consoleChannel && message.content === `${prefix}eventannul`) {
@@ -252,6 +266,12 @@ bot.on('message', (message) => {
                 PtsEvent = 0
             }
         }
+    }
+    if (message.content === `validation terminé!`) {
+        bot.channels.get(IDptsname1).setName(Pts1)
+        bot.channels.get(IDptsname2).setName(Pts2)
+        bot.channels.get(IDptsname3).setName(Pts3)
+        bot.channels.get(IDptsname4).setName(Pts4)
     }
 });
 
