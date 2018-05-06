@@ -253,10 +253,10 @@ bot.on('message', (message) => {
                 PtsEvent = 0
                 messageEvent = ""
                 suivitEvent = 0
-                bot.channels.get(IDptsname1).setName(Pts1)
-                bot.channels.get(IDptsname2).setName(Pts2)
-                bot.channels.get(IDptsname3).setName(Pts3)
-                bot.channels.get(IDptsname4).setName(Pts4)
+                bot.channels.get(IDptsname1).setName(Pts1.toString(10))
+                bot.channels.get(IDptsname2).setName(Pts2.toString(10))
+                bot.channels.get(IDptsname3).setName(Pts3.toString(10))
+                bot.channels.get(IDptsname4).setName(Pts4.toString(10))
                 return
             }
             if (message.channel.id === consoleChannel && message.content === `${prefix}eventannul`) {
@@ -267,11 +267,11 @@ bot.on('message', (message) => {
             }
         }
     }
-    if (message.content === `validation termine!`) {
-        bot.channels.get(IDptsname1).setName(Pts1)
-        bot.channels.get(IDptsname2).setName(Pts2)
-        bot.channels.get(IDptsname3).setName(Pts3)
-        bot.channels.get(IDptsname4).setName(Pts4)
+    if (message.content === `validation termine!` && message.channel.id === consoleChannel) {
+        bot.channels.get(IDptsname1).setName(Pts1.toString(10))
+        bot.channels.get(IDptsname2).setName(Pts2.toString(10))
+        bot.channels.get(IDptsname3).setName(Pts3.toString(10))
+        bot.channels.get(IDptsname4).setName(Pts4.toString(10))
     }
 });
 
