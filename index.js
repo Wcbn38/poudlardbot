@@ -48,10 +48,10 @@ function getrandom(min, max) {
 
 
 bot.on('ready', (channels) => {
-    parseInt(Pts1 = bot.channels.get(IDptsname1).topic, 10)
-    parseInt(Pts2 = bot.channels.get(IDptsname2).topic, 10)
-    parseInt(Pts3 = bot.channels.get(IDptsname3).topic, 10)
-    parseInt(Pts4 = bot.channels.get(IDptsname4).topic, 10)
+    Pts1 = parseInt(bot.channels.get(IDptsname1).topic, 10)
+    Pts2 = parseInt(bot.channels.get(IDptsname2).topic, 10)
+    Pts3 = parseInt(bot.channels.get(IDptsname3).topic, 10)
+    Pts4 = parseInt(bot.channels.get(IDptsname4).topic, 10)
 })
 
 bot.on('guildMemberAdd', (member, guild) => {
