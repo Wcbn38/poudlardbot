@@ -99,19 +99,19 @@ bot.on('message', (message) => {
         Pts2 = 0
         Pts3 = 0
         Pts4 = 0
-        bot.channels.get(IDptsname1).setTopic(Pts1.toString(0))
-        bot.channels.get(IDptsname2).setTopic(Pts2.toString(0))
-        bot.channels.get(IDptsname3).setTopic(Pts3.toString(0))
-        bot.channels.get(IDptsname4).setTopic(Pts4.toString(0))
+        bot.channels.get(IDptsname1).setTopic(Pts1.toString(10))
+        bot.channels.get(IDptsname2).setTopic(Pts2.toString(10))
+        bot.channels.get(IDptsname3).setTopic(Pts3.toString(10))
+        bot.channels.get(IDptsname4).setTopic(Pts4.toString(10))
         message.delete(10)
         return
     }
     if ( (message.content === prefix + "startseason" + mdp) && (message.channel.id === consoleChannel) ) {
         message.delete(10)
-        bot.channels.get(IDptsname1).setTopic(Pts1.toString(0))
-        bot.channels.get(IDptsname2).setTopic(Pts2.toString(0))
-        bot.channels.get(IDptsname3).setTopic(Pts3.toString(0))
-        bot.channels.get(IDptsname4).setTopic(Pts4.toString(0))
+        bot.channels.get(IDptsname1).setTopic(Pts1.toString(10))
+        bot.channels.get(IDptsname2).setTopic(Pts2.toString(10))
+        bot.channels.get(IDptsname3).setTopic(Pts3.toString(10))
+        bot.channels.get(IDptsname4).setTopic(Pts4.toString(10))
         Pts1 = 0
         Pts2 = 0
         Pts3 = 0
