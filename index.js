@@ -93,14 +93,47 @@ bot.on('message', (message) => {
         message.channel.send(`points des maisons : \n ${name1} : ${Pts1} \n ${name2} : ${Pts2} \n ${name3} : ${Pts3} \n ${name4} : ${Pts4}`)
         return
     }
-    if (message.content === prefix + "reset" + mdp) {
+    if ( (message.content === prefix + "reset" + mdp) && (message.channel.id === consoleChannel) ) {
         bot.channels.get(consoleChannel).send("reset successeful")
         Pts1 = 0
         Pts2 = 0
         Pts3 = 0
         Pts4 = 0
+        bot.channels.get(IDptsname1).setTopic(Pts1.toString(0))
+        bot.channels.get(IDptsname2).setTopic(Pts2.toString(0))
+        bot.channels.get(IDptsname3).setTopic(Pts3.toString(0))
+        bot.channels.get(IDptsname4).setTopic(Pts4.toString(0))
         message.delete(10)
         return
+    }
+    if ( (message.content === prefix + "startseason" + mdp) && (message.channel.id === consoleChannel) ) {
+        message.delete(10)
+        bot.channels.get(IDptsname1).setTopic(Pts1.toString(0))
+        bot.channels.get(IDptsname2).setTopic(Pts2.toString(0))
+        bot.channels.get(IDptsname3).setTopic(Pts3.toString(0))
+        bot.channels.get(IDptsname4).setTopic(Pts4.toString(0))
+        Pts1 = 0
+        Pts2 = 0
+        Pts3 = 0
+        Pts4 = 0
+        bot.role.get(ID1).remove(SEND_TTS_MESSAGES)
+        if ( Pts1 > Pts2 || Pts1 > Pts3 || Pts1 > Pts4 ) {
+        
+        } 
+        else {
+        if ( Pts2 > Pts4 || Pts1 > Pts3 || Pts1 > Pts4 ) {
+        
+        } 
+        else {
+        if ( Pts3 > Pts1 || Pts1 > Pts2 || Pts1 > Pts4 ) {
+        
+        } 
+        else {
+        if ( Pts4 > Pts1 || Pts1 > Pts2 || Pts1 > Pts3 ) {
+        
+        } else {
+        }
+        }}}
     }
     if (message.channel.id === consoleChannel && message.content !== "faction 1 :" && message.content !== "defi lance : ne pas lancer de nouveaux defi avant le message de fin!" && message.content !== "error : unknown. Var `suivitMaison` crashed. Reebooting... " && message.content !== "faction 2 :" && message.content !== "mise :") {
         if (message.content === prefix + "startgame" && suivitMaison === 0) {
@@ -113,10 +146,6 @@ bot.on('message', (message) => {
             bot.channels.get(consoleChannel).send("defi annule")
             suivitMaison = 0
             PtsMisee = 0
-            bot.channels.get(IDptsname1).setTopic(Pts1.toString(0))
-            bot.channels.get(IDptsname2).setTopic(Pts2.toString(0))
-            bot.channels.get(IDptsname3).setTopic(Pts3.toString(0))
-            bot.channels.get(IDptsname4).setTopic(Pts4.toString(0))
             return
         } else {
             if (message.content === prefix + "winner" && suivitMaison === 4) {
