@@ -116,7 +116,7 @@ bot.on('message', (message) => {
         Pts2 = 0
         Pts3 = 0
         Pts4 = 0
-        bot.roles.get(ID1).remove(SEND_TTS_MESSAGES)
+        bot.get(ID1).remove(SEND_TTS_MESSAGES)
         if ( Pts1 > Pts2 || Pts1 > Pts3 || Pts1 > Pts4 ) {
         
         } 
