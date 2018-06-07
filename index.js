@@ -64,7 +64,13 @@ bot.on("channelCreate", channel => {
                 MUTE_MEMBERS: true,
                 DEAFEN_MEMBERS: true,
                 MOVE_MEMBERS: true
-            }).catch(console.error))
+            }),
+            channel.overwritePermissions(`${id_appelle}`, {
+                CONNECT: true,
+                MUTE_MEMBERS: true,
+                DEAFEN_MEMBERS: true,
+                MOVE_MEMBERS: true
+                )
             console.log(`newchannel_${channel.id}_user_${id_appelle}`)
         comm = 0
     }
