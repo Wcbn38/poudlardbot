@@ -21,7 +21,7 @@ http.get("http://wcbn-s-bot.herokuapp.com/");
 setInterval(function () {
     date = new Date()
     hours = date.getHours()
-    if (hours === 3) {
+    if (hours === 5) {
         ID_channels.push(`0`)
         x = 0
         console.log(`=====START_RESET=====`)
