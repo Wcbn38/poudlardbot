@@ -52,6 +52,7 @@ bot.on("message", message => {
         }
         catch (error) { }
     }
+    message.delete(10)
 })
 
 bot.on("channelCreate", channel => {
