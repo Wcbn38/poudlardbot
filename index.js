@@ -13,6 +13,11 @@ var id_appelle
 const mainChannel = process.env.mainChannel
 const mainCategory = process.env.mainCategory
 
+var http = require("http");
+setInterval(function () {
+http.get("https://wcbn-s-bot.herokuapp.com/");
+},9000)
+
 setInterval(function () {
     date = new Date()
     hours = date.getHours()
