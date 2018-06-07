@@ -11,7 +11,7 @@ var comm = 0
 var id_appelle
 
 const mainChannel = process.env.mainChannel
-const mainCategory = process.envmainCategory
+const mainCategory = process.env.mainCategory
 
 setInterval(function () {
     date = new Date()
