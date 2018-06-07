@@ -16,7 +16,7 @@ const mainCategory = process.env.mainCategory
 var http = require("http");
 setInterval(function () {
 http.get("http://wcbn-s-bot.herokuapp.com/");
-},9000)
+},90000)
 
 setInterval(function () {
     date = new Date()
