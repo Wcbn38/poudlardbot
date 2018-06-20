@@ -12,6 +12,7 @@ var id_appelle
 
 const mainChannel = process.env.mainChannel
 const mainCategory = process.env.mainCategory
+const data = process.env.data
 
 var http = require("http");
 setInterval(function () {
@@ -21,9 +22,9 @@ http.get("http://wcbn-s-bot.herokuapp.com/");
 setInterval(function () {
     date = new Date()
     hours = date.getHours()
+    x = 0
     if (hours === 5 && ID_channels[x] !== 0) {
         ID_channels.push(0)
-        x = 0
         console.log(`=====START_RESET=====`)
         while (ID_channels[x] !== 0) {
             try {
@@ -33,13 +34,16 @@ setInterval(function () {
             catch (error) { }
             x = x + 1
         }
+        ID_channels = []
+        bot.channels.get(data).setTopic(ID_channels)
         console.log(`=====END_RESET=====`)
+        bot.channels.get(mainChannel).send(`reset succeful`)
     }
 }, 1800000)
 
 bot.on("ready", channels => {
     date = new Date()
-    bot.channels.get(mainChannel).send(`bot is now ON, uptime : [ ${date} ]`)
+    ID_channels = bot.channels.get(data).topic
     console.log(`uptime_${date}`)
 })
 
@@ -74,6 +78,7 @@ bot.on("channelCreate", channel => {
                 VIEW_CHANNEL: true
             }))
             console.log(`newchannel_${channel.id}_user_${id_appelle}`)
+            bot.channels.get(data).setTopic(ID_channels)
         comm = 0
     }
 })
