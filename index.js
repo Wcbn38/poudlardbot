@@ -1,8 +1,9 @@
 //recuperer l'ID role discord == \@rolename
+
 const Discord = require('discord.js');
 const bot = new Discord.Client();
 
-var ID_channels = [1]
+var ID_channels = []
 var x = 0
 var hours
 var date
@@ -11,13 +12,13 @@ var comm = 0
 var id_appelle
 
 const mainChannel = process.env.mainChannel
-const mainCategory = process.env.mainCategory
+const mainCategory = process.env.mainChannel
 const data = process.env.data
 
 var http = require("http");
 setInterval(function () {
-http.get("http://wcbn-s-bot.herokuapp.com/");
-},900000)
+    http.get("http://wcbn-s-bot.herokuapp.com/");
+}, 900000)
 
 setInterval(function () {
     date = new Date()
@@ -28,15 +29,15 @@ setInterval(function () {
         console.log(`=====START_RESET=====`)
         while (ID_channels[x] !== 0) {
             if (ID_channels[x] !== 1) {
-            try {
-                bot.channels.get(ID_channels[x]).delete()
-                console.log(`channel_${x}_ID_${ID_channels[x]}_deleted_at_${date}`)
-            }
-            catch (error) { }
-            x = x + 1
+                try {
+                    bot.channels.get(ID_channels[x]).delete()
+                    console.log(`channel_${x}_ID_${ID_channels[x]}_deleted_at_${date}`)
+                }
+                catch (error) { }
+                x = x + 1
             }
         }
-        ID_channels = [1]
+        ID_channels = [0]
         bot.channels.get(data).setTopic(ID_channels)
         console.log(`=====END_RESET=====`)
         bot.channels.get(mainChannel).send(`reset succeful`)
@@ -45,14 +46,12 @@ setInterval(function () {
 
 bot.on("ready", channels => {
     date = new Date()
-    if (bot.channels.get(data).topic !== []) {
-    ID_channels = bot.channels.get(data).topic
-    }
+    ID_channels.push(bot.channels.get(data).topic)
     console.log(`uptime_${date}`)
 })
 
 bot.on("message", message => {
-    if (message.content === "new.channel" && message.channel.id === mainChannel ) {
+    if (message.content === "new.channel" && message.channel.id === mainChannel) {
         try {
             message.guild.createChannel(`salon de ${message.member.user.username}`, `voice`)
             id_appelle = message.member.user.id
@@ -64,9 +63,9 @@ bot.on("message", message => {
 
 bot.on("channelCreate", channel => {
     if (channel.type === `voice` && comm === 1) {
-            ID_channels.push(`${channel.id}`)
-            bin = channel.id
-            channel.setParent(mainCategory).then(
+        ID_channels.push(`${channel.id}`)
+        bin = channel.id
+        channel.setParent(mainCategory).then(
             channel.overwritePermissions(`${id_appelle}`, {
                 CONNECT: true,
                 MUTE_MEMBERS: true,
@@ -81,8 +80,8 @@ bot.on("channelCreate", channel => {
                 MOVE_MEMBERS: true,
                 VIEW_CHANNEL: true
             }))
-            console.log(`newchannel_${channel.id}_user_${id_appelle}`)
-            bot.channels.get(data).setTopic(ID_channels)
+        console.log(`newchannel_${channel.id}_user_${id_appelle}`)
+        bot.channels.get(data).setTopic(`${ID_channels}`)
         comm = 0
     }
 })
