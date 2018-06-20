@@ -2,7 +2,7 @@
 const Discord = require('discord.js');
 const bot = new Discord.Client();
 
-var ID_channels = []
+var ID_channels = [1]
 var x = 0
 var hours
 var date
@@ -27,14 +27,16 @@ setInterval(function () {
         ID_channels.push(0)
         console.log(`=====START_RESET=====`)
         while (ID_channels[x] !== 0) {
+            if (ID_channels[x] !== 1) {
             try {
                 bot.channels.get(ID_channels[x]).delete()
                 console.log(`channel_${x}_ID_${ID_channels[x]}_deleted_at_${date}`)
             }
             catch (error) { }
             x = x + 1
+            }
         }
-        ID_channels = []
+        ID_channels = [1]
         bot.channels.get(data).setTopic(ID_channels)
         console.log(`=====END_RESET=====`)
         bot.channels.get(mainChannel).send(`reset succeful`)
