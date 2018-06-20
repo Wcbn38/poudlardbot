@@ -12,7 +12,7 @@ var comm = 0
 var id_appelle
 
 const mainChannel = process.env.mainChannel
-const mainCategory = process.env.Category
+const mainCategory = process.env.mainCategory
 const data = process.env.data
 
 var http = require("http");
