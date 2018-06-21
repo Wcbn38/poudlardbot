@@ -46,7 +46,9 @@ setInterval(function () {
 
 bot.on("ready", channels => {
     date = new Date()
-    ID_channels.push(bot.channels.get(data).topic)
+    ID_channels = []
+    ID_channels.push(bot.channels.get(data).topic).then(
+        bot.channels.get(data).setTopic(`${ID_channels}`))
     console.log(`uptime_${date}`)
 })
 
