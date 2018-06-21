@@ -47,16 +47,16 @@ setInterval(function () {
 bot.on("ready", channels => {
     date = new Date()
     ID_channels = []
-    ID_channels.push(bot.channels.get(data).topic).then(
-        bot.channels.get(data).setTopic(`${ID_channels}`))
+    ID_channels.push(bot.channels.get(data).topic)
+    bot.channels.get(data).setTopic(`${ID_channels}`)
     console.log(`uptime_${date}`)
 })
 
 bot.on("message", message => {
     if (message.content === "new.channel" && message.channel.id === mainChannel) {
         try {
-            message.guild.createChannel(`salon de ${message.member.user.username}`, `voice`).then(
-            comm = 1)
+            message.guild.createChannel(`salon de ${message.member.user.username}`, `voice`)
+            comm = 1
             id_appelle = message.member.user.id
         }
         catch (error) { }
