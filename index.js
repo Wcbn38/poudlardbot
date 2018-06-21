@@ -56,7 +56,7 @@ bot.on("message", message => {
     if (message.content === "new.channel" && message.channel.id === mainChannel) {
         try {
             message.guild.createChannel(`salon de ${message.member.user.username}`, `voice`).then(
-            id_appelle = message.member.user.id
+            id_appelle = `${message.member.user.id}`
             comm = 1)
         }
         catch (error) { }
