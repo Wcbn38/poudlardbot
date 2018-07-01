@@ -59,12 +59,12 @@ bot.on("message", message => {
             id_appelle = message.member.user.id
         }
         catch (error) { }
-    } else {
+    } else { if ( message.user.id !== botId ) {
             try {
                 message.delete(10)
                 message.channel.send(`message has been deleted. Please send your message in a channel dedicated to this function.`)
             } catch (error) { console.log(error) }
-        }
+        }}
 })
 
 bot.on("channelCreate", channel => {
