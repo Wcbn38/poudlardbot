@@ -51,7 +51,7 @@ bot.on("ready", channels => {
 })
 
 bot.on("message", message => {
-    if (message.content === "new.channel" && message.channel.id === mainChannel && message.user === bot) {
+    if (message.content === "new.channel" && message.channel.id === mainChannel && message.user !== bot) {
         try {
             message.guild.createChannel(`salon de ${message.member.user.username}`, `voice`)
             comm = 1
