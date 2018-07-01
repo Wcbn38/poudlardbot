@@ -14,6 +14,7 @@ var id_appelle
 const mainChannel = process.env.mainChannel
 const mainCategory = process.env.mainCategory
 const data = process.env.data
+const botId = process.env.botId
 
 var http = require("http");
 setInterval(function () {
@@ -51,7 +52,7 @@ bot.on("ready", channels => {
 })
 
 bot.on("message", message => {
-    if (message.content === "new.channel" && message.channel.id === mainChannel && message.user !== bot) {
+    if (message.content === "new.channel" && message.channel.id === mainChannel && message.user.id !== botId) {
         try {
             message.guild.createChannel(`salon de ${message.member.user.username}`, `voice`)
             comm = 1
