@@ -52,14 +52,14 @@ bot.on("ready", channels => {
 })
 
 bot.on("message", message => {
-    if (message.content === "new.channel" && message.channel.id === mainChannel && message.user.id !== botId) {
+    if (message.content === "new.channel" && message.channel.id === mainChannel && message.member.user.id !== botId) {
         try {
             message.guild.createChannel(`salon de ${message.member.user.username}`, `voice`)
             comm = 1
             id_appelle = message.member.user.id
         }
         catch (error) { }
-    } else { if ( message.user.id !== botId ) {
+    } else { if ( message.member.user.id !== botId ) {
             try {
                 message.delete(10)
                 message.channel.send(`message has been deleted. Please send your message in a channel dedicated to this function.`)
