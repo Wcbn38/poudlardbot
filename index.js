@@ -37,7 +37,7 @@ setInterval(function () {
                 x = x + 1
         }
         ID_channels = []
-        bot.channels.get(data).setTopic(ID_channels)
+        bot.channels.get(data).setTopic(`1`)
         console.log(`=====END_RESET=====`)
         bot.channels.get(mainChannel).send(`reset succeful`)
     }
