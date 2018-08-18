@@ -25,18 +25,20 @@ setInterval(function () {
     date = new Date()
     hours = date.getHours()
     x = 0
-    if (hours === 5 && ID_channels[x] !== []) {
+    if (hours === 5 && !( ID_channels === [] || ID_channels === [1] ) ) {
         ID_channels.push(0)
         console.log(`=====START_RESET=====`)
         while (ID_channels[x] !== 0) {
                 try {
+                    if (ID_channels[x] !== 1) {
                     bot.channels.get(ID_channels[x]).delete()
                     console.log(`channel_${x}_ID_${ID_channels[x]}_deleted_at_${date}`)
+                    }
                 }
                 catch (error) { }
                 x = x + 1
         }
-        ID_channels = []
+        ID_channels = [1]
         bot.channels.get(data).setTopic(`1`)
         console.log(`=====END_RESET=====`)
         bot.channels.get(mainChannel).send(`reset succeful`)
