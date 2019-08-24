@@ -75,28 +75,28 @@ bot.on("channelCreate", channel => {
         ID_channels.push(`${channel.id}`)
         bin = channel.id
         channel.setParent(mainCategory).then(
-            channel.overwritePermissions(guild.member.user.get(id_appelle), {
+            channel.overwritePermissions(channel.guild.member.user.get(id_appelle), {
                 CONNECT: true,
                 MUTE_MEMBERS: true,
                 DEAFEN_MEMBERS: true,
                 MOVE_MEMBERS: true,
                 VIEW_CHANNEL: true
             }),
-            channel.overwritePermissions(guild.member.user.get(id_appelle), {
+            channel.overwritePermissions(channel.guild.member.user.get(id_appelle), {
                 CONNECT: true,
                 MUTE_MEMBERS: true,
                 DEAFEN_MEMBERS: true,
                 MOVE_MEMBERS: true,
                 VIEW_CHANNEL: true
             })).then(
-            channel.overwritePermissions(guild.defaultRole, {
+            channel.overwritePermissions(channel.guild.defaultRole, {
                 CONNECT: false,
                 MUTE_MEMBERS: false,
                 DEAFEN_MEMBERS: false,
                 MOVE_MEMBERS: true,
                 VIEW_CHANNEL: false
             }),
-            channel.overwritePermissions(guild.defaultRole, {
+            channel.overwritePermissions(channel.guild.defaultRole, {
                 CONNECT: false,
                 MUTE_MEMBERS: false,
                 DEAFEN_MEMBERS: false,
