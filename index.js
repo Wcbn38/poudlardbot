@@ -81,21 +81,7 @@ bot.on("channelCreate", channel => {
                 DEAFEN_MEMBERS: true,
                 MOVE_MEMBERS: true,
                 VIEW_CHANNEL: true
-            }),
-            channel.overwritePermissions(guild.member.user.get(id_appelle), {
-                CONNECT: true,
-                MUTE_MEMBERS: true,
-                DEAFEN_MEMBERS: true,
-                MOVE_MEMBERS: true,
-                VIEW_CHANNEL: true
-            }))
-            channel.overwritePermissions(guild.defaultRole, {
-                CONNECT: false,
-                MUTE_MEMBERS: false,
-                DEAFEN_MEMBERS: false,
-                MOVE_MEMBERS: true,
-                VIEW_CHANNEL: false
-            }),
+            })
             channel.overwritePermissions(guild.defaultRole, {
                 CONNECT: false,
                 MUTE_MEMBERS: false,
