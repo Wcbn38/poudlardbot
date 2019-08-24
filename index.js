@@ -51,7 +51,7 @@ bot.on("ready", channels => {
     ID_channels.push(bot.channels.get(data).topic)
     bot.channels.get(data).setTopic(`${ID_channels}`)
     console.log(`uptime_${date}`)
-    console.log(`v1.0`)
+    console.log(`v1.0.1`)
 })
 
 bot.on("message", message => {
@@ -88,7 +88,8 @@ bot.on("channelCreate", channel => {
                 DEAFEN_MEMBERS: false,
                 MOVE_MEMBERS: true,
                 VIEW_CHANNEL: false
-            }))
+            })
+        )
         console.log(`newchannel_${channel.id}_user_${id_appelle}`)
         bot.channels.get(data).setTopic(`${ID_channels}`)
         comm = 0
