@@ -82,7 +82,7 @@ bot.on("channelCreate", channel => {
                 MOVE_MEMBERS: true,
                 VIEW_CHANNEL: true
             }),
-            channel.overwritePermissions(${id_appelle}, {
+            channel.overwritePermissions(`${id_appelle}`, {
                 CONNECT: true,
                 MUTE_MEMBERS: true,
                 DEAFEN_MEMBERS: true,
