@@ -25,7 +25,7 @@ setInterval(function () {
     date = new Date()
     hours = date.getHours()
     x = 0
-    if (hours === 5 && !( ID_channels === [] || ID_channels === [1] ) ) {
+    if (hours === 7 && !( ID_channels === [] || ID_channels === [1] ) ) {
         ID_channels.push(0)
         console.log(`=====START_RESET=====`)
         while (ID_channels[x] !== 0) {
