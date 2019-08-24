@@ -51,6 +51,7 @@ bot.on("ready", channels => {
     ID_channels.push(bot.channels.get(data).topic)
     bot.channels.get(data).setTopic(`${ID_channels}`)
     console.log(`uptime_${date}`)
+    console.log(`v1.0`)
 })
 
 bot.on("message", message => {
