@@ -89,7 +89,6 @@ bot.on("channelCreate", channel => {
                 MOVE_MEMBERS: true,
                 VIEW_CHANNEL: false
             }))
-        )
         console.log(`newchannel_${channel.id} user_${id_appelle}`)
         bot.channels.get(data).setTopic(`${ID_channels}`)
         comm = 0
