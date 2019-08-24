@@ -62,7 +62,7 @@ bot.on("message", message => {
             id_appelle = message.member.user.id
         }
         catch (error) { }
-    } else { if ( message.member.user.id !== botId ) {
+    } else { if ( message.member.user.id !== botId && message.channel.id === mainChannel) {
             try {
                 message.delete(10)
                 message.channel.send(`message has been deleted. Please send your message in a channel dedicated to this function.`)
@@ -75,19 +75,33 @@ bot.on("channelCreate", channel => {
         ID_channels.push(`${channel.id}`)
         bin = channel.id
         channel.setParent(mainCategory).then(
-            channel.overwritePermissions(`${id_appelle}`, {
+            channel.overwritePermissions(guild.member.user.get(id_appelle), {
                 CONNECT: true,
                 MUTE_MEMBERS: true,
                 DEAFEN_MEMBERS: true,
                 MOVE_MEMBERS: true,
                 VIEW_CHANNEL: true
             }),
-            channel.overwritePermissions(`${id_appelle}`, {
+            channel.overwritePermissions(guild.member.user.get(id_appelle), {
                 CONNECT: true,
                 MUTE_MEMBERS: true,
                 DEAFEN_MEMBERS: true,
                 MOVE_MEMBERS: true,
                 VIEW_CHANNEL: true
+            }))
+            channel.overwritePermissions(guild.defaultRole, {
+                CONNECT: false,
+                MUTE_MEMBERS: false,
+                DEAFEN_MEMBERS: false,
+                MOVE_MEMBERS: true,
+                VIEW_CHANNEL: false
+            }),
+            channel.overwritePermissions(guild.defaultRole, {
+                CONNECT: false,
+                MUTE_MEMBERS: false,
+                DEAFEN_MEMBERS: false,
+                MOVE_MEMBERS: true,
+                VIEW_CHANNEL: false
             }))
         console.log(`newchannel_${channel.id}_user_${id_appelle}`)
         bot.channels.get(data).setTopic(`${ID_channels}`)
