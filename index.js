@@ -75,7 +75,7 @@ bot.on("channelCreate", channel => {
         ID_channels.push(`${channel.id}`)
         bin = channel.id
         channel.setParent(mainCategory).then(
-            channel.overwritePermissions(`${id_appelle}`), {
+            channel.overwritePermissions(`${id_appelle}`, {
                 CONNECT: true,
                 MUTE_MEMBERS: true,
                 DEAFEN_MEMBERS: true,
