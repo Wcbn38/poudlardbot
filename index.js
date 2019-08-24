@@ -81,16 +81,16 @@ bot.on("channelCreate", channel => {
                 DEAFEN_MEMBERS: true,
                 MOVE_MEMBERS: true,
                 VIEW_CHANNEL: true
-            })
+            })).then(
             channel.overwritePermissions(guild.defaultRole, {
                 CONNECT: false,
                 MUTE_MEMBERS: false,
                 DEAFEN_MEMBERS: false,
                 MOVE_MEMBERS: true,
                 VIEW_CHANNEL: false
-            })
+            }))
         )
-        console.log(`newchannel_${channel.id}_user_${id_appelle}`)
+        console.log(`newchannel_${channel.id} user_${id_appelle}`)
         bot.channels.get(data).setTopic(`${ID_channels}`)
         comm = 0
     }
