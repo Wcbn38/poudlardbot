@@ -13,7 +13,7 @@ var id_appelle
 
 const mainChannel = process.env.mainChannel
 const mainCategory = process.env.mainCategory
-const console = process.env.console
+const consoleChannel = process.env.console
 const data = process.env.data
 const botId = process.env.botId
 
@@ -29,23 +29,23 @@ setInterval(function () {
     if (hours === 7 && !( ID_channels === [] || ID_channels === [1] ) ) {
         ID_channels.push(0)
         console.log(`=====START_RESET=====`)
-        bot.channels.get(console).send(`=====START_RESET=====`)
+        bot.channels.get(consoleChannel).send(`=====START_RESET=====`)
         while (ID_channels[x] !== 0) {
                 try {
                     if (ID_channels[x] !== 1) {
                     bot.channels.get(ID_channels[x]).delete()
-                    bot.channels.get(console).send(`channel_${x}_ID_${ID_channels[x]}_deleted_at_${date}`)
+                    bot.channels.get(consoleChannel).send(`channel_${x}_ID_${ID_channels[x]}_deleted_at_${date}`)
                     console.log(`channel_${x}_ID_${ID_channels[x]}_deleted_at_${date}`)
                     }
                 }
                 catch (error) { console.log(error)
-                                bot.channels.get(console).send(`delete_failed_channel==${ID_channels[x]}`)
+                                bot.channels.get(consoleChannel).send(`delete_failed_channel==${ID_channels[x]}`)
                               }
                 x = x + 1
         }
         ID_channels = [1]
         bot.channels.get(data).setTopic(`1`)
-        bot.channels.get(console).send(`=====END_RESET=====`)
+        bot.channels.get(consoleChannel).send(`=====END_RESET=====`)
         console.log(`=====END_RESET=====`)
         bot.channels.get(mainChannel).send(`reset succeful`)
     }
@@ -56,7 +56,7 @@ bot.on("ready", channels => {
     ID_channels = []
     ID_channels.push(bot.channels.get(data).topic)
     bot.channels.get(data).setTopic(`${ID_channels}`)
-    bot.channels.get(console).send(`build v1.0.3 :: uptime_${date}`)
+    bot.channels.get(consoleChannel).send(`build v1.0.3 :: uptime_${date}`)
     console.log(`build v1.0.3 :: uptime_${date}`)
 })
 
@@ -109,7 +109,7 @@ bot.on("channelCreate", channel => {
                 MOVE_MEMBERS: true,
                 VIEW_CHANNEL: false
             }))
-        bot.channels.get(console).send(`newchannel_${channel.id} user_${id_appelle}`)
+        bot.channels.get(consoleChannel).send(`newchannel_${channel.id} user_${id_appelle}`)
         console.log(`newchannel_${channel.id} user_${id_appelle}`)
         bot.channels.get(data).setTopic(`${ID_channels}`)
         comm = 0
