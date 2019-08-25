@@ -47,7 +47,6 @@ setInterval(function () {
         bot.channels.get(data).setTopic(`1`)
         bot.channels.get(consoleChannel).send(`=====END_RESET=====`)
         console.log(`=====END_RESET=====`)
-        bot.channels.get(mainChannel).send(`reset succeful`)
     }
 }, 2700000)
 
