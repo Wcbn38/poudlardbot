@@ -16,7 +16,7 @@ const mainCategory = process.env.mainCategory
 const consoleChannel = process.env.console
 const data = process.env.data
 const botId = process.env.botId
-var StartMessage = `build v1.1.1 :: uptime_${date}`
+const Version = `v1.1.2`
 
 var http = require("http");
 setInterval(function () {
@@ -56,8 +56,8 @@ bot.on("ready", channels => {
     ID_channels = []
     ID_channels.push(bot.channels.get(data).topic)
     bot.channels.get(data).setTopic(`${ID_channels}`)
-    bot.channels.get(consoleChannel).send(StartMessage)
-    console.log(StartMessage)
+    bot.channels.get(consoleChannel).send(`build ${StartMessage} :: uptime_${date}`)
+    console.log(`build ${StartMessage} :: uptime_${date}`)
 })
 
 bot.on("message", message => {
