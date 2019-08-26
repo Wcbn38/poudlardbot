@@ -16,6 +16,7 @@ const mainCategory = process.env.mainCategory
 const consoleChannel = process.env.console
 const data = process.env.data
 const botId = process.env.botId
+var StartMessage = `build v1.1.1 :: uptime_${date}`
 
 var http = require("http");
 setInterval(function () {
@@ -48,15 +49,15 @@ setInterval(function () {
         bot.channels.get(consoleChannel).send(`=====END_RESET=====`)
         console.log(`=====END_RESET=====`)
     }
-}, 2700000)
+}, 3600000)
 
 bot.on("ready", channels => {
     date = new Date()
     ID_channels = []
     ID_channels.push(bot.channels.get(data).topic)
     bot.channels.get(data).setTopic(`${ID_channels}`)
-    bot.channels.get(consoleChannel).send(`build v1.0.3 :: uptime_${date}`)
-    console.log(`build v1.1.0 :: uptime_${date}`)
+    bot.channels.get(consoleChannel).send(StartMessage)
+    console.log(StartMessage)
 })
 
 bot.on("message", message => {
