@@ -1,7 +1,7 @@
 {
-  "name": "nodejs-console-app1",
+  "name": "TOB",
   "version": "1.0.0",
-  "description": "NodejsConsoleApp1",
+  "description": "TOB",
   "main": "app.js",
   "author": {
     "name": "Wcbn"
@@ -10,6 +10,6 @@
     "@types/node": "^6.0.87"
   },
   "dependencies": {
-    "discord.js": "^11.3.1"
+    "discord.js": "^12.5.1"
   }
 }
