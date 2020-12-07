@@ -1,7 +1,7 @@
 {
-  "name": "TOB",
+  "name": "DynChan",
   "version": "1.0.0",
-  "description": "TOB",
+  "description": "DynChan",
   "main": "app.js",
   "author": {
     "name": "Wcbn"
